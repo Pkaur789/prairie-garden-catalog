@@ -10,6 +10,7 @@ Bundler.require(*Rails.groups)
 module PrairieGarden
   class Application < Rails::Application
     config.load_defaults 7.2
+    config.active_record.validate_migration_timestamps = false
     config.generators.system_tests = nil
   end
 end
