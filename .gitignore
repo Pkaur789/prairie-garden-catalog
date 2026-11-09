@@ -1,0 +1,6 @@
+/.bundle
+/log/
+/tmp/
+/storage/*
+!/storage/.keep
+/config/master.key
