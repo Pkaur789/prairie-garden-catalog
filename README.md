@@ -3,7 +3,7 @@
 Rails Intro Project · Parneet Kaur
 
 A searchable catalog of fictional prairie garden plants. Three local CSV datasets
-populate six SQLite tables with 340 rows. All imported data and styles are included.
+populate six SQLite tables with 340 rows. All imported data, family illustrations and styles are included.
 
 ## Run on Windows with WSL
 
@@ -111,4 +111,4 @@ page (rubric item 3.6).
 | `config/routes.rb` | Catalog, categories and About URLs |
 | `app/controllers/` | Database queries for each page |
 | `app/views/` | ERB templates for navigation, search and profile pages |
-| `public/` | Bootstrap CSS, custom styles and database diagram |
+| `public/` | Bootstrap CSS, custom styles, plant illustrations and database diagram |

@@ -27,6 +27,8 @@
     <% @plants.each do |plant| %>
       <div class="col-sm-6 col-lg-4">
         <article class="card h-100">
+          <%= image_tag plant_illustration_path(plant), alt: "", width: 300, height: 185,
+                        loading: "lazy", class: "card-img-top plant-card-image" %>
           <div class="card-body">
             <p class="eyebrow mb-2"><%= plant.catalog_code %> · <%= plant.light %></p>
             <h3 class="h5"><%= link_to plant.name, plant_path(plant) %></h3>

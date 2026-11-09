@@ -8,3 +8,5 @@ a:hover { color: #0d422e; }
 .hero h1 { font-weight: 750; }
 .eyebrow { color: #385c4c; font-size: .85rem; font-weight: 700; letter-spacing: .035em; }
 .card { border-color: #dce5dd; border-radius: .8rem; }
+.plant-card-image { display: block; width: 100%; height: auto; }
+.plant-profile-image { display: block; width: 100%; max-width: 360px; height: auto; border-radius: .75rem; }

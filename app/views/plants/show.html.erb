@@ -1,9 +1,17 @@
 <% content_for :title, @plant.name %>
 <p><%= link_to "Back to catalog", plants_path %></p>
 <header class="hero mb-4">
-  <p class="eyebrow"><%= @plant.catalog_code %> · Plant profile</p>
-  <h1><%= @plant.name %></h1>
-  <p class="mb-0"><%= @plant.family_notes %></p>
+  <div class="row g-3 align-items-center">
+    <div class="col-md-7">
+      <p class="eyebrow"><%= @plant.catalog_code %> · Plant profile</p>
+      <h1><%= @plant.name %></h1>
+      <p class="mb-0"><%= @plant.family_notes %></p>
+    </div>
+    <div class="col-md-5">
+      <%= image_tag plant_illustration_path(@plant), alt: "Illustration of a #{@plant.family.name.downcase} plant",
+                    width: 300, height: 185, class: "plant-profile-image" %>
+    </div>
+  </div>
 </header>
 <div class="row g-3">
   <div class="col-md-4">
