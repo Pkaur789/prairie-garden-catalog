@@ -1,0 +1,14 @@
+<% content_for :title, @heading %>
+<h1 class="mb-3"><%= @heading %></h1>
+<p>Choose a category to see the plants it contains.</p>
+<div class="row g-3">
+  <% @groups.each do |group| %>
+    <div class="col-sm-6 col-lg-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <%= link_to group.name, polymorphic_path(group), class: "fw-semibold" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

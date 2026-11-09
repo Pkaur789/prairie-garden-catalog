@@ -1,0 +1,15 @@
+<% content_for :title, @group.name %>
+<p><%= link_to "Back to #{@heading.downcase}", polymorphic_path(@model) %></p>
+<header class="hero mb-4">
+  <p class="eyebrow"><%= @heading %></p>
+  <h1><%= @group.name %></h1>
+  <p class="mb-0"><%= pluralize(@plants.size, "plant") %> in this group</p>
+</header>
+<ul class="list-group">
+  <% @plants.each do |plant| %>
+    <li class="list-group-item d-flex flex-wrap justify-content-between gap-2">
+      <%= link_to plant.name, plant_path(plant) %>
+      <span class="text-secondary"><%= plant.catalog_code %> · <%= plant.light %></span>
+    </li>
+  <% end %>
+</ul>
