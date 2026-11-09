@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= content_for?(:title) ? yield(:title) + " | Prairie Garden" : "Prairie Garden Catalog" %></title>
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <link rel="stylesheet" href="/catalog.css">
+  </head>
+  <body>
+    <a class="visually-hidden-focusable" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="container d-flex flex-wrap align-items-center justify-content-between py-3 gap-3" aria-label="Main navigation">
+        <%= link_to "Prairie Garden", root_path, class: "brand" %>
+        <ul class="nav">
+          <li class="nav-item"><%= link_to "Catalog", plants_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Families", families_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Habitats", habitats_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Garden uses", garden_uses_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "About", about_path, class: "nav-link" %></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main" class="container py-4 py-md-5">
+      <%= yield %>
+    </main>
+    <footer class="container pb-4 pt-2 text-secondary">Prairie Garden Catalog · Rails Intro Project</footer>
+  </body>
+</html>
