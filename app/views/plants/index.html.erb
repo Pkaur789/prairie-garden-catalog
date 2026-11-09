@@ -1,0 +1,43 @@
+<% content_for :title, "Plant catalog" %>
+<section class="hero mb-4">
+  <p class="eyebrow">Rails Intro Project · Fictional data</p>
+  <h1>Prairie Garden Catalog</h1>
+  <p class="mb-0">Browse plant profiles by family, habitat, or garden use.</p>
+</section>
+
+<%= form_with url: plants_path, method: :get, local: true, class: "row g-3 align-items-end mb-4" do %>
+  <div class="col-md-5">
+    <%= label_tag :q, "Plant name or catalog code", class: "form-label" %>
+    <%= search_field_tag :q, @query, class: "form-control", placeholder: "Try Mint or PG001" %>
+  </div>
+  <div class="col-md-4">
+    <%= label_tag :family_id, "Family", class: "form-label" %>
+    <%= select_tag :family_id, options_from_collection_for_select(@families, :id, :name, @family_id.to_i),
+                   include_blank: "All families", class: "form-select" %>
+  </div>
+  <div class="col-md-3 d-flex gap-2">
+    <%= submit_tag "Search", name: nil, class: "btn btn-success" %>
+    <%= link_to "Reset", plants_path, class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
+
+<% if @plants.any? %>
+  <h2 class="h5 mb-3"><%= pluralize(@total, "plant") %> found</h2>
+  <div class="row g-3">
+    <% @plants.each do |plant| %>
+      <div class="col-sm-6 col-lg-4">
+        <article class="card h-100">
+          <div class="card-body">
+            <p class="eyebrow mb-2"><%= plant.catalog_code %> · <%= plant.light %></p>
+            <h3 class="h5"><%= link_to plant.name, plant_path(plant) %></h3>
+            <p class="mb-0"><%= link_to plant.family.name, family_path(plant.family) %></p>
+          </div>
+        </article>
+      </div>
+    <% end %>
+  </div>
+  <%= render "pagination" %>
+<% else %>
+  <h2 class="h5">No plants match this search</h2>
+  <p>Try a shorter name or choose All families.</p>
+<% end %>
