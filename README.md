@@ -44,7 +44,7 @@ use `bundle exec ruby bin/rails` followed by the same subcommand.
 1. Open **About**. Describe the three CSVs, the shared catalog code, and the
    six-table ERD. Show the seed output in a second terminal.
 2. Open **Catalog** and click **Next**. The app shows 12 plants per page.
-3. Search **mint**. Select **Mint-inspired** and search again to show how the
+3. Search **meadow**. Select **Composite-inspired** and search again to show how the
    family dropdown narrows the keyword results. Try **zzzz** to show the
    conditional empty state, then click **Reset**.
 4. Search **PG001** and open **Conebloom**. Point out its imported details and
