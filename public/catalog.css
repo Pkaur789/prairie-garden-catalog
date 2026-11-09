@@ -1,0 +1,10 @@
+body { background: #faf9f4; color: #192c25; }
+a { color: #185e43; text-underline-offset: .15em; }
+a:hover { color: #0d422e; }
+.site-header { background: #fff; border-bottom: 1px solid #dce5dd; }
+.site-header .nav-link { color: #185e43; }
+.brand { color: #192c25; font-weight: 750; text-decoration: none; }
+.hero { background: #e4eee3; border-radius: 1rem; padding: clamp(1.3rem, 4vw, 3rem); }
+.hero h1 { font-weight: 750; }
+.eyebrow { color: #385c4c; font-size: .85rem; font-weight: 700; letter-spacing: .035em; }
+.card { border-color: #dce5dd; border-radius: .8rem; }
