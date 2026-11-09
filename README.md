@@ -23,9 +23,9 @@ populate six SQLite tables with 340 rows. All imported data, family illustration
    ```bash
    ruby -v
    bundle install
-   bin/rails db:prepare
-   bin/rails db:seed
-   bin/rails server -b 127.0.0.1
+   bundle exec ruby bin/rails db:prepare
+   bundle exec ruby bin/rails db:seed
+   bundle exec ruby bin/rails server -b 127.0.0.1
    ```
 
    The seed output should show `Total rows: 340`. The explicit seed command
@@ -33,11 +33,10 @@ populate six SQLite tables with 340 rows. All imported data, family illustration
 
 3. Open [the catalog](http://127.0.0.1:3000) in Chrome or Edge. Leave the server
    running while you demo, then press Ctrl+C to stop it. After initial setup,
-   use `bin/rails server -b 127.0.0.1` to start the app again.
+   use `bundle exec ruby bin/rails server -b 127.0.0.1` to start the app again.
 
-If a different app already uses port 3000, run `bin/rails server -b 127.0.0.1 -p 3001` and
-open `http://127.0.0.1:3001`. If `bin/rails` is not executable after extracting,
-use `bundle exec ruby bin/rails` followed by the same subcommand.
+If a different app already uses port 3000, run `bundle exec ruby bin/rails server -b 127.0.0.1 -p 3001` and
+open `http://127.0.0.1:3001`.
 
 ## Demo walkthrough
 
