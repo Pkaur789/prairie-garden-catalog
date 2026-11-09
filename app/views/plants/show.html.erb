@@ -1,0 +1,46 @@
+<% content_for :title, @plant.name %>
+<p><%= link_to "Back to catalog", plants_path %></p>
+<header class="hero mb-4">
+  <p class="eyebrow"><%= @plant.catalog_code %> · Plant profile</p>
+  <h1><%= @plant.name %></h1>
+  <p class="mb-0"><%= @plant.family_notes %></p>
+</header>
+<div class="row g-3">
+  <div class="col-md-4">
+    <section class="card h-100">
+      <div class="card-body">
+        <h2 class="h5">Profile details</h2>
+        <dl class="mb-0">
+          <dt>Family</dt>
+          <dd><%= link_to @plant.family.name, family_path(@plant.family) %></dd>
+          <dt>Light</dt>
+          <dd><%= @plant.light %></dd>
+        </dl>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-4">
+    <section class="card h-100">
+      <div class="card-body">
+        <h2 class="h5">Habitats</h2>
+        <ul class="mb-0">
+          <% @plant.habitats.sort_by(&:name).each do |habitat| %>
+            <li><%= link_to habitat.name, habitat_path(habitat) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="col-md-4">
+    <section class="card h-100">
+      <div class="card-body">
+        <h2 class="h5">Garden uses</h2>
+        <ul class="mb-0">
+          <% @plant.garden_uses.sort_by(&:name).each do |use| %>
+            <li><%= link_to use.name, garden_use_path(use) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </section>
+  </div>
+</div>
