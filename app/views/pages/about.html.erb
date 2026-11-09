@@ -1,0 +1,21 @@
+<% content_for :title, "About" %>
+<header class="hero mb-4">
+  <p class="eyebrow">Rails Intro Project · Parneet Kaur</p>
+  <h1>About the catalog</h1>
+  <p class="mb-0">Prairie Garden uses three locally authored CSV datasets to demonstrate how Rails imports and connects related records. The profiles and classifications are fictional.</p>
+</header>
+
+<h2 class="h4">Data sources</h2>
+<ul>
+  <li><code>plants.csv</code> contains a catalog code, name, family, family notes, and light level for each of 64 profiles. Rails stores the family once and links it to every plant in that group.</li>
+  <li><code>habitats.csv</code> pairs each catalog code with two habitat names. Rails stores each habitat once and uses a join table to link it to its plants.</li>
+  <li><code>garden_uses.csv</code> pairs each catalog code with two garden use names. A separate join table records those relationships.</li>
+</ul>
+<p>The import matches CSV rows by <code>catalog_code</code> and lets Rails generate the database primary keys. The three files populate 340 rows across six tables.</p>
+
+<h2 class="h4 mt-4">Database structure</h2>
+<p>One family has many plants. Plants and habitats have a many-to-many relationship through <code>plant_habitats</code>. Plants and garden uses have another through <code>plant_garden_uses</code>.</p>
+<figure>
+  <a href="/erd.svg"><img src="/erd.svg" class="img-fluid" alt="Six-table ERD showing the family foreign key and two many-to-many join tables"></a>
+  <figcaption class="text-secondary">Open the diagram to view the keys at full size. Each table also has Rails timestamps. Each join table has a unique index across its two foreign keys.</figcaption>
+</figure>
