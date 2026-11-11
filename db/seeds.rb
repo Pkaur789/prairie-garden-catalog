@@ -1,8 +1,16 @@
 require "csv"
+require "open-uri"
+
+DATASET_BASE_URL = "https://raw.githubusercontent.com/Pkaur789/prairie-garden-catalog/master/db/data"
 
 def catalog_rows(file_name, &block)
-  CSV.foreach(Rails.root.join("db/data", file_name), headers: true, &block)
+  url = "#{DATASET_BASE_URL}/#{file_name}"
+
+  URI.open(url) do |file|
+    CSV.new(file, headers: true).each(&block)
+  end
 end
+
 
 ActiveRecord::Base.transaction do
   plants = {}
